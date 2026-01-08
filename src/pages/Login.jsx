@@ -80,7 +80,7 @@ const Login = () => {
                         <label className="flex flex-col gap-1.5">
                             <div className="flex justify-between items-center ml-1">
                                 <span className="text-[#111118] text-sm font-bold">Password</span>
-                                <Link to="/forget-password" className="text-sm font-medium text-[#3c3cf6] hover:underline">Forgot?</Link>
+                                <Link to="/forget-password" className="text-sm font-medium text-[#3c3cf6] hover:underline">Forgot Password?</Link>
                             </div>
                             <div className="relative group">
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#3c3cf6] transition-colors">lock</span>

@@ -1,13 +1,12 @@
 import { Link } from "react-router";
+import error from "../assets/error.png"
 
 const NotFound = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-[#f5f5f8] text-center px-4 font-['Spline_Sans']">
             {/* 404 Illustration / Icon */}
             <div className="relative mb-8">
-                <span className="material-symbols-outlined text-9xl text-gray-300">
-                    sentiment_broken
-                </span>
+               <img src={error} alt="" />
                 <div className="absolute -bottom-2 -right-2 bg-[#ef4343] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg rotate-12">
                     404 Error
                 </div>

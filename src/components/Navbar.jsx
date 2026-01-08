@@ -55,7 +55,7 @@ const Navbar = () => {
                             : "text-[#60608a] text-sm font-medium hover:text-[#3c3cf6] transition-colors"
                     }
                 >
-                    Add Toy
+                    Toy Blog
                 </NavLink>
             )}
         </>
