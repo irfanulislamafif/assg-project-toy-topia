@@ -9,7 +9,7 @@ import ForgetPassword from "../pages/ForgetPassword";
 import ExtraRoute from "../pages/ExtraRoute";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import AllToys from "../pages/AllToys"; 
+import AllToys from "../pages/AllToys";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +60,10 @@ const router = createBrowserRouter([
             <ExtraRoute />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

@@ -4,21 +4,21 @@ import Loader from "../components/Loader";
 import useToys from "../hooks/useToys";
 
 const AllToys = () => {
-    // 1. Destructure error from hook
+  
     const { toys, loading, error } = useToys();
     
     const [displayToys, setDisplayToys] = useState([]);
     const [activeTab, setActiveTab] = useState("All Toys");
     const [searchText, setSearchText] = useState("");
 
-    // Update displayToys when toys data comes
+
     useEffect(() => {
         if (toys.length > 0) {
             setDisplayToys(toys);
         }
     }, [toys]);
 
-    // ... (Handlers: handleSearch, handleTabClick, handleSort same as before) ...
+
     const handleSearch = () => {
         const filtered = toys.filter(toy => 
             toy.toyName.toLowerCase().includes(searchText.toLowerCase())
@@ -46,12 +46,12 @@ const AllToys = () => {
         setDisplayToys(sorted);
     };
 
-    // 2. Loading State
+
     if (loading) {
         return <Loader />;
     }
 
-    // 3. Error State UI (New Addition)
+
     if (error) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center font-['Spline_Sans']">
@@ -63,12 +63,11 @@ const AllToys = () => {
         );
     }
 
-    // 4. Main UI
+
     return (
         <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-8 font-['Spline_Sans']">
             
-            {/* ... (Hero, Search, Filter Sections same as before) ... */}
-            
+       
             <div className="flex flex-col items-center justify-center gap-6 py-8 text-center">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl md:text-5xl font-black tracking-tight text-[#181111]">
