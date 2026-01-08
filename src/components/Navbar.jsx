@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-
+import logo from "../assets/toytopia-removebg-preview.png"
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,8 +67,8 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group cursor-pointer">
-                        <div className="size-10 bg-[#3c3cf6]/10 rounded-full flex items-center justify-center text-[#3c3cf6] group-hover:scale-110 transition-transform">
-                            <span className="material-symbols-outlined" style={{ fontSize: "24px" }}>smart_toy</span>
+                        <div className="size-15 border border-gray-50 rounded-full flex items-center justify-center text-[#3c3cf6] group-hover:scale-110 transition-transform">
+                           <img src={logo} alt="" />
                         </div>
                         <h1 className="text-2xl font-bold tracking-tight text-[#111118]">ToyTopia</h1>
                     </Link>

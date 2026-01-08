@@ -45,7 +45,7 @@ const Slider = () => {
                             </div>
                             <div className="flex justify-center h-full items-center">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1587654780291-39c940483713?q=80&w=1470&auto=format&fit=crop" 
+                                    src="https://i.ibb.co.com/Dg7StmgN/buildingblock.jpg" 
                                     alt="Building Blocks" 
                                     className="w-full max-w-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 rounded-2xl"
                                 />
@@ -79,7 +79,7 @@ const Slider = () => {
                             </div>
                             <div className="flex justify-center h-full items-center">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1555445054-01cb040713b9?q=80&w=1470&auto=format&fit=crop" 
+                                    src="https://i.ibb.co.com/4Z2BcBgF/teddy-bear.jpg" 
                                     alt="Teddy Bear" 
                                     className="w-full max-w-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 rounded-2xl"
                                 />
@@ -113,7 +113,7 @@ const Slider = () => {
                             </div>
                             <div className="flex justify-center h-full items-center">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?q=80&w=1470&auto=format&fit=crop" 
+                                    src="https://i.ibb.co.com/tTZfmPDD/photo-1594787318286-3d835c1d207f-q-80-w-1470-auto-format-fit-crop.jpg" 
                                     alt="Race Car" 
                                     className="w-full max-w-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 rounded-2xl"
                                 />

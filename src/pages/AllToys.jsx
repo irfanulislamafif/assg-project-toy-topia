@@ -4,14 +4,14 @@ import Loader from "../components/Loader";
 import useToys from "../hooks/useToys";
 
 const AllToys = () => {
-  
+    
     const { toys, loading, error } = useToys();
     
     const [displayToys, setDisplayToys] = useState([]);
     const [activeTab, setActiveTab] = useState("All Toys");
     const [searchText, setSearchText] = useState("");
 
-
+ 
     useEffect(() => {
         if (toys.length > 0) {
             setDisplayToys(toys);
@@ -19,15 +19,19 @@ const AllToys = () => {
     }, [toys]);
 
 
-    const handleSearch = () => {
-        const filtered = toys.filter(toy => 
-            toy.toyName.toLowerCase().includes(searchText.toLowerCase())
-        );
-        setDisplayToys(filtered);
-    };
+    useEffect(() => {
+        if(toys.length > 0){
+            const filtered = toys.filter(toy => 
+                toy.toyName.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setDisplayToys(filtered);
+        }
+    }, [searchText, toys]); 
 
+  
     const handleTabClick = (categoryName) => {
         setActiveTab(categoryName);
+        setSearchText(""); 
         if (categoryName === "All Toys") {
             setDisplayToys(toys);
         } else {
@@ -35,6 +39,7 @@ const AllToys = () => {
             setDisplayToys(filtered);
         }
     };
+
 
     const handleSort = (order) => {
         const sorted = [...displayToys];
@@ -46,11 +51,9 @@ const AllToys = () => {
         setDisplayToys(sorted);
     };
 
-
     if (loading) {
         return <Loader />;
     }
-
 
     if (error) {
         return (
@@ -63,11 +66,9 @@ const AllToys = () => {
         );
     }
 
-
     return (
         <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-8 font-['Spline_Sans']">
             
-       
             <div className="flex flex-col items-center justify-center gap-6 py-8 text-center">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl md:text-5xl font-black tracking-tight text-[#181111]">
@@ -83,14 +84,14 @@ const AllToys = () => {
                         <div className="absolute left-4 flex items-center text-[#896161] group-focus-within:text-[#3c3cf6] transition-colors">
                             <span className="material-symbols-outlined">search</span>
                         </div>
+                        {/* Input Field Update */}
                         <input 
-                            onChange={(e) => setSearchText(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                            value={searchText} 
+                            onChange={(e) => setSearchText(e.target.value)} 
                             className="h-14 w-full rounded-full border-2 border-transparent bg-white pl-12 pr-4 text-base font-medium text-[#181111] placeholder:text-[#896161] focus:border-[#3c3cf6] focus:outline-none focus:ring-0 shadow-sm transition-all" 
                             placeholder="Search by toy name..." 
                         />
                         <button 
-                            onClick={handleSearch}
                             className="absolute right-2 h-10 rounded-full bg-[#3c3cf6] px-6 text-sm font-bold text-white hover:bg-[#2563eb] transition-colors"
                         >
                             Search

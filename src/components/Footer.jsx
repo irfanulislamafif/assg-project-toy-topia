@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-
+import logo from "../assets/toytopia-removebg-preview.png"
 const Footer = () => {
     return (
         <footer className="bg-[#101022] text-white pt-16 pb-8 mt-auto font-['Spline_Sans']">
@@ -8,8 +8,8 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="size-10 bg-white/10 rounded-full flex items-center justify-center text-white">
-                                <span className="material-symbols-outlined">smart_toy</span>
+                            <div className="size-10 bg-white rounded-full flex items-center justify-center text-white">
+                                <img src={logo} alt="" />
                             </div>
                             <h2 className="text-2xl font-bold">ToyTopia</h2>
                         </div>
