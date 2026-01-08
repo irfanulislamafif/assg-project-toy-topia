@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 
@@ -10,7 +10,6 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
     const [showPassword, setShowPassword] = useState(false);
 
-    // Handle Email/Password Login
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -29,7 +28,6 @@ const Login = () => {
             });
     };
 
-    // Handle Google Login
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then(result => {
@@ -45,12 +43,10 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f5f5f8] relative overflow-hidden font-['Spline_Sans'] py-10">
-            {/* Decorative Background Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#EAB308]/20 rounded-full blur-[80px] animate-pulse"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#EF4444]/15 rounded-full blur-[80px] animate-pulse"></div>
 
             <div className="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col relative z-10">
-                {/* Top Decorative Bar */}
                 <div className="h-3 w-full flex">
                     <div className="flex-1 bg-[#3c3cf6]"></div>
                     <div className="flex-1 bg-[#EAB308]"></div>
@@ -58,7 +54,6 @@ const Login = () => {
                 </div>
 
                 <div className="px-8 pt-10 pb-12 flex flex-col gap-6">
-                    {/* Header */}
                     <div className="text-center space-y-2">
                         <div className="inline-flex items-center justify-center p-3 mb-2 rounded-full bg-[#3c3cf6]/10 text-[#3c3cf6]">
                             <span className="material-symbols-outlined text-3xl">sentiment_satisfied</span>
@@ -67,9 +62,7 @@ const Login = () => {
                         <p className="text-[#60608a] text-base font-normal leading-normal">Log in to view your toy collection.</p>
                     </div>
 
-                    {/* Form */}
                     <form onSubmit={handleLogin} className="flex flex-col gap-5 mt-2">
-                        {/* Email */}
                         <label className="flex flex-col gap-1.5">
                             <span className="text-[#111118] text-sm font-bold ml-1">Email</span>
                             <div className="relative group">
@@ -84,11 +77,10 @@ const Login = () => {
                             </div>
                         </label>
 
-                        {/* Password */}
                         <label className="flex flex-col gap-1.5">
                             <div className="flex justify-between items-center ml-1">
                                 <span className="text-[#111118] text-sm font-bold">Password</span>
-                                <Link to="/forget-password" class="text-sm font-medium text-[#3c3cf6] hover:underline">Forgot?</Link>
+                                <Link to="/forget-password" className="text-sm font-medium text-[#3c3cf6] hover:underline">Forgot?</Link>
                             </div>
                             <div className="relative group">
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#3c3cf6] transition-colors">lock</span>
@@ -111,20 +103,17 @@ const Login = () => {
                             </div>
                         </label>
 
-                        {/* Submit Button */}
                         <button type="submit" className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-4 bg-[#3c3cf6] hover:bg-[#2563eb] text-white text-base font-bold shadow-lg shadow-[#3c3cf6]/30 transition-all active:scale-95 mt-2">
                             <span>Log In</span>
                         </button>
                     </form>
 
-                    {/* Divider */}
                     <div className="relative flex items-center py-2">
                         <div className="flex-grow border-t border-gray-200"></div>
                         <span className="flex-shrink-0 mx-4 text-gray-400 text-sm font-medium">or continue with</span>
                         <div className="flex-grow border-t border-gray-200"></div>
                     </div>
 
-                    {/* Google Sign In */}
                     <button onClick={handleGoogleLogin} className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-full h-12 px-4 bg-white border border-gray-200 hover:bg-gray-50 text-[#111118] text-base font-bold transition-all active:scale-95">
                         <svg className="h-5 w-5" viewBox="0 0 24 24">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
@@ -135,7 +124,6 @@ const Login = () => {
                         <span>Google</span>
                     </button>
 
-                    {/* Footer Link */}
                     <div className="text-center pt-2">
                         <p className="text-sm font-medium text-gray-500">
                             New here? <Link to="/register" className="text-[#3c3cf6] hover:underline font-bold">Join the fun!</Link>
