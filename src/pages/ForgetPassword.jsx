@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router"; 
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async"; 
 
 const auth = getAuth(app);
 
@@ -34,6 +35,11 @@ const ForgetPassword = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f5f5f8] font-['Spline_Sans'] px-4">
+            {/* Dynamic Title */}
+            <Helmet>
+                <title>ToyTopia | Forget Password</title>
+            </Helmet>
+
             <div className="w-full max-w-md bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10">
                 
                 <div className="text-center mb-8">

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";  
 
 const Register = () => {
     const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
@@ -17,10 +18,8 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
 
-        // Reset Error
         setPasswordError("");
 
-        // Password Validation
         if (password.length < 6) {
             setPasswordError("Password must be at least 6 characters long.");
             return;
@@ -34,16 +33,13 @@ const Register = () => {
             return;
         }
 
-        // Create User
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                // Update Profile
                 updateUserProfile(name, photo)
                     .then(() => {
                         toast.success("Registration Successful!");
                         navigate("/");
-                        // Note: You might want to reload or update context manually if the name doesn't show immediately
                     })
                     .catch(err => console.log(err));
             })
@@ -53,7 +49,6 @@ const Register = () => {
             });
     };
 
-    // Google Sign In Handler
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then(result => {
@@ -67,16 +62,19 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f5f5f8] relative overflow-hidden font-['Spline_Sans'] py-10">
+            {/* Dynamic Title */}
+            <Helmet>
+                <title>ToyTopia | Register</title>
+            </Helmet>
+
             {/* Decorative Floating Shapes */}
             <div className="absolute top-20 left-10 w-16 h-16 bg-[#EAB308] rounded-full blur-xl opacity-60 animate-bounce delay-700 hidden lg:block"></div>
             <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#EF4444] rounded-full blur-xl opacity-60 animate-bounce delay-100 hidden lg:block"></div>
 
             <div className="w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-white relative z-10">
-                {/* Header Bar */}
                 <div className="h-3 w-full bg-gradient-to-r from-[#3c3cf6] via-[#EAB308] to-[#EF4444]"></div>
 
                 <div className="p-8 sm:p-10 flex flex-col gap-6">
-                    {/* Heading */}
                     <div className="text-center space-y-2">
                         <div className="inline-flex items-center justify-center p-3 bg-blue-50 rounded-full mb-2">
                             <span className="material-symbols-outlined text-[#3c3cf6] text-3xl">celebration</span>
@@ -85,9 +83,7 @@ const Register = () => {
                         <p className="text-[#60608a] font-medium">Create your account to start playing.</p>
                     </div>
 
-                    {/* Form */}
                     <form onSubmit={handleRegister} className="flex flex-col gap-5 mt-2">
-                        {/* Name Field */}
                         <div className="space-y-1">
                             <label className="text-[#111118] text-sm font-bold ml-3">Full Name</label>
                             <div className="relative">
@@ -96,7 +92,6 @@ const Register = () => {
                             </div>
                         </div>
 
-                        {/* Email Field */}
                         <div className="space-y-1">
                             <label className="text-[#111118] text-sm font-bold ml-3">Email Address</label>
                             <div className="relative">
@@ -105,7 +100,6 @@ const Register = () => {
                             </div>
                         </div>
 
-                        {/* Photo URL Field */}
                         <div className="space-y-1">
                             <label className="text-[#111118] text-sm font-bold ml-3">Photo URL</label>
                             <div className="relative">
@@ -114,7 +108,6 @@ const Register = () => {
                             </div>
                         </div>
 
-                        {/* Password Field with Toggle */}
                         <div className="space-y-1">
                             <label className="text-[#111118] text-sm font-bold ml-3">Password</label>
                             <div className="relative group/pass">
@@ -145,21 +138,18 @@ const Register = () => {
                             </p>
                         </div>
 
-                        {/* Submit Button */}
                         <button className="mt-4 w-full h-14 bg-[#3c3cf6] hover:bg-[#2563eb] text-white font-bold text-lg rounded-full shadow-lg shadow-[#3c3cf6]/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group">
                             <span>Start Playing</span>
                             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                         </button>
                     </form>
 
-                    {/* Divider */}
                     <div className="relative flex items-center py-2">
                         <div className="flex-grow border-t border-gray-200"></div>
                         <span className="flex-shrink-0 mx-4 text-gray-400 text-sm font-medium">or</span>
                         <div className="flex-grow border-t border-gray-200"></div>
                     </div>
 
-                    {/* Google Button */}
                     <button onClick={handleGoogleLogin} className="w-full h-12 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-full border border-gray-200 shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-3">
                         <svg className="w-5 h-5" viewBox="0 0 24 24">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
@@ -170,7 +160,6 @@ const Register = () => {
                         Sign up with Google
                     </button>
 
-                    {/* Footer */}
                     <p className="text-center text-gray-500 text-sm">
                         Already have an account? <Link to="/login" className="text-[#3c3cf6] font-bold hover:underline">Log In</Link>
                     </p>

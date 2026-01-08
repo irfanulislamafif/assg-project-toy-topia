@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router"; 
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
@@ -43,6 +44,11 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f5f5f8] relative overflow-hidden font-['Spline_Sans'] py-10">
+            {/* Dynamic Title */}
+            <Helmet>
+                <title>ToyTopia | Login</title>
+            </Helmet>
+
             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#EAB308]/20 rounded-full blur-[80px] animate-pulse"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#EF4444]/15 rounded-full blur-[80px] animate-pulse"></div>
 

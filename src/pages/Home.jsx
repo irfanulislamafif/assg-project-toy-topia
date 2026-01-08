@@ -4,6 +4,7 @@ import ShopCategory from "../components/ShopCategory";
 import ChooseFeature from "../components/ChooseFeature";
 import Loader from "../components/Loader";
 import useToys from "../hooks/useToys";
+import { Helmet } from "react-helmet-async"; 
 
 const Home = () => {
   const { toys, loading, error } = useToys();
@@ -22,6 +23,11 @@ const Home = () => {
 
   return (
     <div>
+      {/* Dynamic Title */}
+      <Helmet>
+        <title>ToyTopia | Home</title>
+      </Helmet>
+
       <Slider />
       <ShopCategory />
       <PopularToys toys={toys} />

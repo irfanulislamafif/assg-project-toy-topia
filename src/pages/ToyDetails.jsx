@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, Link } from "react-router"; 
+import toast from "react-hot-toast"; 
+import { Helmet } from "react-helmet-async"; 
 import useToys from "../hooks/useToys";
 import Loader from "../components/Loader";
 
@@ -32,6 +34,9 @@ const ToyDetails = () => {
     if (!toy) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
+                <Helmet>
+                    <title>ToyTopia | Toy Not Found</title>
+                </Helmet>
                 <span className="material-symbols-outlined text-6xl text-gray-300">search_off</span>
                 <h2 className="text-2xl font-bold text-[#181111]">Toy not found!</h2>
                 <Link to="/" className="text-[#3c3cf6] font-bold hover:underline">Go Back Home</Link>
@@ -43,6 +48,11 @@ const ToyDetails = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 font-['Spline_Sans']">
+            
+            {/* Dynamic Page Title added here */}
+            <Helmet>
+                <title>ToyTopia | {toyName}</title>
+            </Helmet>
             
             <div className="mb-8">
                 <Link to="/all-toys" className="inline-flex items-center text-sm font-bold text-[#896161] hover:text-[#3c3cf6] transition-colors">
@@ -113,14 +123,32 @@ const ToyDetails = () => {
                             </div>
                         </div>
 
-                        <div className="mt-auto flex gap-4">
-                            <button className="flex-1 bg-[#3c3cf6] hover:bg-[#2563eb] text-white h-14 rounded-full font-bold text-lg shadow-lg shadow-[#3c3cf6]/30 transition-all active:scale-95 flex items-center justify-center gap-2">
-                                <span className="material-symbols-outlined">shopping_bag</span>
-                                Add to Cart
-                            </button>
-                            <button className="w-14 h-14 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors">
-                                <span className="material-symbols-outlined">favorite</span>
-                            </button>
+                        {/* Updated Section: Try Now Form */}
+                        <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                            <h3 className="text-xl font-bold text-[#181111] mb-4">Want to buy this toy?</h3>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                toast.success("Request submitted successfully!");
+                                e.target.reset();
+                            }} className="flex flex-col gap-4">
+                                
+                                {/* Name Field */}
+                                <div className="flex flex-col gap-1">
+                                    <label className="text-sm font-bold text-[#896161]">Your Name</label>
+                                    <input type="text" name="name" required placeholder="Enter your name" className="input input-bordered w-full rounded-full" />
+                                </div>
+
+                                {/* Email Field */}
+                                <div className="flex flex-col gap-1">
+                                    <label className="text-sm font-bold text-[#896161]">Your Email</label>
+                                    <input type="email" name="email" required placeholder="Enter your email" className="input input-bordered w-full rounded-full" />
+                                </div>
+
+                                {/* Try Now Button */}
+                                <button type="submit" className="bg-[#3c3cf6] hover:bg-[#2563eb] text-white h-12 rounded-full font-bold text-lg shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 mt-2">
+                                    Try Now
+                                </button>
+                            </form>
                         </div>
 
                     </div>

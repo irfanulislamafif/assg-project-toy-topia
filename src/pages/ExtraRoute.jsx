@@ -2,6 +2,7 @@ import Loader from "../components/Loader";
 import useBlogs from "../hooks/useBlogs";
 import BlogGrid from "../components/BlogGrid";
 import Newsletter from "../components/Newsletter";
+import { Helmet } from "react-helmet-async"; 
 
 const ExtraRoute = () => {
   const { blogs, loading, error } = useBlogs();
@@ -18,6 +19,11 @@ const ExtraRoute = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f5f8] font-['Spline_Sans'] py-12 px-4">
+      {/* Dynamic Title */}
+      <Helmet>
+        <title>ToyTopia | Blogs</title>
+      </Helmet>
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="bg-[#3c3cf6]/10 text-[#3c3cf6] font-bold px-4 py-2 rounded-full text-xs uppercase tracking-widest">

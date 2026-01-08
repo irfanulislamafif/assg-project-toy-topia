@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
     const { user, updateUserProfile, logOut } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
 
-    // Form Handler
     const handleUpdate = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -18,7 +18,6 @@ const MyProfile = () => {
             .then(() => {
                 setLoading(false);
                 toast.success("Profile Updated Successfully!");
-                // Note: Firebase sometimes takes time to reflect changes, a reload might be needed to see photo update immediately
             })
             .catch((error) => {
                 setLoading(false);
@@ -37,9 +36,12 @@ const MyProfile = () => {
 
     return (
         <div className="min-h-screen bg-[#f5f5f8] py-12 px-4 font-['Spline_Sans']">
+            {/* Dynamic Title */}
+            <Helmet>
+                <title>ToyTopia | My Profile</title>
+            </Helmet>
+
             <div className="max-w-4xl mx-auto">
-                
-                {/* Header Text */}
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-black text-[#181111]">My Account</h1>
                     <p className="text-[#896161]">Manage your profile information</p>
@@ -50,7 +52,6 @@ const MyProfile = () => {
                     {/* --- Left Side: Profile Card --- */}
                     <div className="md:col-span-1">
                         <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center h-full">
-                            {/* Profile Image */}
                             <div className="relative mb-4">
                                 <div className="w-32 h-32 rounded-full p-1 border-4 border-[#3c3cf6]/20">
                                     <img 
@@ -101,7 +102,6 @@ const MyProfile = () => {
                             </h3>
 
                             <form onSubmit={handleUpdate} className="space-y-6">
-                                {/* Name Input */}
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-[#181111] ml-1">Full Name</label>
                                     <div className="relative">
@@ -115,7 +115,6 @@ const MyProfile = () => {
                                     </div>
                                 </div>
 
-                                {/* Email Input (Read Only) */}
                                 <div className="space-y-2 opacity-60">
                                     <label className="text-sm font-bold text-[#181111] ml-1">Email (Cannot be changed)</label>
                                     <div className="relative">
@@ -129,7 +128,6 @@ const MyProfile = () => {
                                     </div>
                                 </div>
 
-                                {/* Photo URL Input */}
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-[#181111] ml-1">Photo URL</label>
                                     <div className="relative">
@@ -143,7 +141,6 @@ const MyProfile = () => {
                                     </div>
                                 </div>
 
-                                {/* Submit Button */}
                                 <div className="pt-4">
                                     <button 
                                         type="submit" 

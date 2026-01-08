@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ToyCard from "../components/ToyCard";
 import Loader from "../components/Loader";
 import useToys from "../hooks/useToys";
+import { Helmet } from "react-helmet-async"; 
 
 const AllToys = () => {
     
@@ -68,7 +69,11 @@ const AllToys = () => {
 
     return (
         <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-8 font-['Spline_Sans']">
-            
+            {/* Dynamic Title */}
+            <Helmet>
+                <title>ToyTopia | All Toys</title>
+            </Helmet>
+
             <div className="flex flex-col items-center justify-center gap-6 py-8 text-center">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-3xl md:text-5xl font-black tracking-tight text-[#181111]">
