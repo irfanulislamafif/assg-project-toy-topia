@@ -10,6 +10,8 @@ import ExtraRoute from "../pages/ExtraRoute";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AllToys from "../pages/AllToys";
+import AddToys from "../pages/AddToys"; 
+import MyToys from "../pages/MyToys";   
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <NotFound />,
     children: [
+
       {
         path: "/",
         element: <Home />,
@@ -37,6 +40,24 @@ const router = createBrowserRouter([
         path: "/forget-password",
         element: <ForgetPassword />,
       },
+ 
+      {
+        path: "/add-toy",
+        element: (
+          <PrivateRoute>
+            <AddToys />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-toys",
+        element: (
+          <PrivateRoute>
+            <MyToys />
+          </PrivateRoute>
+        ),
+      },
+   
       {
         path: "/toy/:id",
         element: (
