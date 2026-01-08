@@ -1,0 +1,74 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Space Explorer Shuttle",
+    "sellerName": "Astro Toys Ltd",
+    "sellerEmail": "sales@astrotoys.com",
+    "price": 49.99,
+    "rating": 4.8,
+    "availableQuantity": 15,
+    "description": "Launch into adventure with this 500-piece building set complete with astronaut figures. Perfect for kids who love space.",
+    "pictureURL": "https://i.ibb.co.com/chyzsNqn/AB6-AXu-Dfq0nv-EXg6-Hd-GCB4-Vusv-Nbu-h-Icv-FEGv-Xgv-HUp-ULor-Na6-DZc8-GOn-P8-G3d-Zk-B4k-N3-Di-Kj-IFvjvp-DA0.png",
+    "subCategory": "Lego"
+  },
+  {
+    "toyId": 2,
+    "toyName": "RC Monster Truck",
+    "sellerName": "Speedy Gears",
+    "sellerEmail": "contact@speedygears.com",
+    "price": 34.99,
+    "rating": 5.0,
+    "availableQuantity": 8,
+    "description": "High speed off-road action with rechargeable battery and shock suspension. Handles any terrain easily.",
+    "pictureURL": "https://i.ibb.co.com/JjFDrk7N/AB6-AXu-BOQH4-GOVi-BZs-Nf-A9-Wa9x-Gj2epiq-Qcexjdt-JMCBv-YJVz-Wv8-N2vys7-P-v-XTp3-P9-Ob9-D8-GIVAz-Zr96uy4-RJ5u.png",
+    "subCategory": "Vehicles"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Dino Buddy Plush",
+    "sellerName": "Soft Hugs Inc",
+    "sellerEmail": "info@softhugs.com",
+    "price": 19.99,
+    "rating": 4.2,
+    "availableQuantity": 45,
+    "description": "Super soft green dinosaur plush, perfect for bedtime cuddles. Made with non-toxic hypoallergenic materials.",
+    "pictureURL": "https://i.ibb.co.com/4CGnRPY/AB6-AXu-BXXks-WWJe-Fs-Js-Bpl-N5-PILMCXjr-Or-Erw3-Kk-Fzxwo5x2w-ZKS-Db-O2-I4-RG4-M9-Faab-Rq-Is-BHDVox-e7-XDSoz.png",
+    "subCategory": "Plushies"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Classic Wooden Train",
+    "sellerName": "WoodWorks Local",
+    "sellerEmail": "shop@woodworks.com",
+    "price": 24.99,
+    "rating": 4.7,
+    "availableQuantity": 20,
+    "description": "Timeless wooden train set with tracks, compatible with major brands. Great for motor skills development.",
+    "pictureURL": "https://i.ibb.co.com/B2CRM3Zz/AB6-AXu-B-ym-Ka-DDGIu-DLy7-Zvcoi0-FHt-KGGjw4sdb-CSJm6-EQm03ig-P7-OLHu-Ds-FGo3-Wpo-Z0d-QMssv-B8x-Ogg9k-PRp.png",
+    "subCategory": "Educational"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Junior Doctor Kit",
+    "sellerName": "Future Pro",
+    "sellerEmail": "support@futurepro.com",
+    "price": 15.99,
+    "rating": 5.0,
+    "availableQuantity": 30,
+    "description": "Roleplay set with stethoscope, thermometer, and carrying case. Helps children overcome fear of doctors.",
+    "pictureURL": "https://i.ibb.co.com/JRdQh7Z5/AB6-AXu-B-d-H1jl-OE-fo-Dlyt-TLb-Iaj-At2-Cnq-Kyu-Jp-UVk-Ht-Sfu5k-VWEHq9pderp-ZQh-C04-C8i-Gi2-Ra5k-W-WXV1r.png",
+    "subCategory": "Educational"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Galactic Robot",
+    "sellerName": "RoboTech",
+    "sellerEmail": "sales@robotech.com",
+    "price": 29.99,
+    "rating": 4.9,
+    "availableQuantity": 3,
+    "description": "Interactive robot featuring light-up eyes and 10 distinct catchphrases. Walks and talks!",
+    "pictureURL": "https://i.ibb.co.com/prGSQxPw/AB6-AXu-A3mw-Hng-BPa5-VWL6-EGh37h-H-uz-Txf-Wh-Mucn-P9dv8-Nw-LCBx-Gm-OHIGITu-GK-23n-Ps-KG3qd-E0ka8-YA30k0r.png",
+    "subCategory": "Action Figures"
+  }
+]
